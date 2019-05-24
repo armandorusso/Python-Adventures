@@ -94,7 +94,7 @@ def drawboard(guess, secretword, letter, blankword):
 def midgame(guess, secretword, letter, blankword):
     while guess != len(hangman):
         if letter in secretword:
-                if newLetter in guessLetter:
+            if newLetter in guessLetter:
                 print('You already guessed that letter! Enter a new guess: ')
                 newLetter = input()
                 midgame(guess, secretword, newLetter, blankword)
@@ -103,7 +103,7 @@ def midgame(guess, secretword, letter, blankword):
             print('Enter your next guess: ')
             newLetter = input()
         else:
-            if newerLetter in guessLetter:
+            if newLetter in guessLetter:
                 print('You guessed that letter already! Enter a new letter: ')
                 newerLetter = input()
                 midgame(guess, secretword, newerLetter, blankword)
@@ -128,18 +128,3 @@ def startgame():
 
 
 startgame()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
