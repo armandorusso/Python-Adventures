@@ -12,7 +12,7 @@ hangman = ['''
 ''', '''
 --------
 |      |
-0      |
+o      |
        |
        |
        |
@@ -94,23 +94,24 @@ def drawboard(guess, secretword, letter, blankword):
 def midgame(guess, secretword, letter, blankword):
     while guess != len(hangman):
         if letter in secretword:
+                if newLetter in guessLetter:
+                print('You already guessed that letter! Enter a new guess: ')
+                newLetter = input()
+                midgame(guess, secretword, newLetter, blankword)
             print('Nice, you got yourself a correct guess!')
             drawboard(guess, secretword, letter, blankword)
             print('Enter your next guess: ')
             newLetter = input()
-            if newLetter in guessLetter:
-                print('You already guessed that letter! Enter a new guess: ')
-                newLetter = input()
-            midgame(guess, secretword, newLetter, blankword)
         else:
+            if newerLetter in guessLetter:
+                print('You guessed that letter already! Enter a new letter: ')
+                newerLetter = input()
+                midgame(guess, secretword, newerLetter, blankword)
             print('Incorrect guess!')
             guess = guess + 1
             drawboard(guess, secretword, letter, blankword)
             print('You dont have many tries yet! Enter another word: ')
             newerLetter = input()
-            if newerLetter in guessLetter:
-                print('You guessed that letter already! Enter a new letter: ')
-                newerLetter = input()
             midgame(guess, secretword, newerLetter, blankword)
 
 
